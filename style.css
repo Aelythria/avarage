@@ -117,27 +117,20 @@ button:active {
 /* ========================
    RESULT & ERROR
 ======================== */
-.result {
-  margin-top: 15px;
-  font-size: 14px;
-  word-wrap: break-word;
-
-  overflow: hidden;       /* biar wipe keliatan */
-  max-height: 0;          /* mulai dari tertutup */
-  opacity: 1;             /* tetap terlihat selama wipe */
-  transition: max-height 0.5s ease-out;
-}
-
-/* trigger wipe: pas JS update result, tambahkan class 'show' */
-.result.show {
-  max-height: 200px;      /* tinggi maksimal konten */
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+.result {    
+  margin-top: 15px;    
+  font-size: 14px;    
+  word-wrap: break-word;    
+    
+  opacity: 0;    
+  animation: fadeIn 2s forwards;    
+}    
+    
+@keyframes fadeIn {    
+  from { opacity: 0; transform: translateY(-10px); }    
+  to { opacity: 1; transform: translateY(0); }    
+}    
+    
 .error {
   margin-top: 10px;
   color: #ff6b6b;
@@ -183,4 +176,48 @@ input:focus ~ .box::before {
 @keyframes particleAnim {
   from { transform: translateY(0) scale(1); opacity: 1; }
   to { transform: translateY(-20px) scale(0.3); opacity: 0; }
+}
+
+/* ====================== PAGE FADE ====================== */
+body.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+body.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ====================== BACK BUTTON ====================== */
+#back-home {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #c1316d, #ff5ea2);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#back-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(193,49,109,0.6);
+}
+
+#back-home:active {
+  transform: scale(0.97);
+  background: linear-gradient(135deg, #ff5ea2, #c1316d);
 }

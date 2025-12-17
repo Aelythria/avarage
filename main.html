@@ -9,12 +9,10 @@
 </head>
 
 <body>
-
   <div class="box">
     <h3>Average Calculator</h3>
     <div class="hint">Use commas or spaces between numbers</div>
 
-    <!-- INPUT ANGKA (HP AUTO NUMERIC KEYBOARD) -->
     <input
       type="text"
       id="inputNumbers"
@@ -24,11 +22,13 @@
     >
 
     <button onclick="calculate()">Calculate</button>
+    <button id="back-home">Back to Home</button>
 
     <div class="result" id="result"></div>
     <div class="error" id="error"></div>
   </div>
 
   <script src="Average.js"></script>
+  <script src="fade.js"></script>
 </body>
 </html>
